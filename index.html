@@ -30,7 +30,7 @@
     <!-- Navigation -->
     <nav class="navbar reveal">
         <div class="logo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -59,7 +59,7 @@
         </button>
     </nav>
 
-    <!-- Hero -->
+    <!-- ═══════════ HERO ═══════════ -->
     <section class="hero">
         <div class="hero-content reveal">
             <div class="badge-wrap">
@@ -88,9 +88,9 @@
             </div>
             <div class="chat-body" id="chat-body">
                 <div class="chat-msg msg-user" data-i18n="chat_user_1">Refueled the truck for $150</div>
-                <div class="chat-msg msg-bot" data-i18n="chat_bot_1">&#10003; Recorded! Transport / Fuel \u2014 $150.00<br>&#128202; This is 15% of your transport budget</div>
+                <div class="chat-msg msg-bot" data-i18n="chat_bot_1">&#10003; Recorded! Transport / Fuel — $150.00<br>&#128202; This is 15% of your transport budget</div>
                 <div class="chat-msg msg-user" data-i18n="chat_user_2">Show expenses for the month</div>
-                <div class="chat-msg msg-bot" data-i18n="chat_bot_2">&#128200; February expenses: $2,340<br>&#128313; Transport \u2014 $680<br>&#128313; Materials \u2014 $450<br>&#128313; Food \u2014 $320</div>
+                <div class="chat-msg msg-bot" data-i18n="chat_bot_2">&#128200; February expenses: $2,340<br>&#128313; Transport — $680<br>&#128313; Materials — $450<br>&#128313; Food — $320</div>
                 <div class="chat-msg msg-user" data-i18n="chat_user_3">Remind me to call the client tomorrow at 10am</div>
                 <div class="chat-msg msg-bot" data-i18n="chat_bot_3">&#9989; Done! Reminder set for tomorrow, Feb 24 at 10:00 AM</div>
                 <div class="typing-indicator" id="typing-indicator">
@@ -102,7 +102,7 @@
         </div>
     </section>
 
-    <!-- Stats -->
+    <!-- ═══════════ STATS ═══════════ -->
     <section class="reveal">
         <div class="stats-grid">
             <div class="stat-card">
@@ -124,7 +124,7 @@
         </div>
     </section>
 
-    <!-- Integrations -->
+    <!-- ═══════════ INTEGRATIONS ═══════════ -->
     <section class="integrations reveal">
         <p class="section-label" data-i18n="integrations_label">WORKS WITH YOUR FAVORITE TOOLS</p>
         <div class="marquee-wrapper">
@@ -143,7 +143,7 @@
         </div>
     </section>
 
-    <!-- Features Bento -->
+    <!-- ═══════════ FEATURES BENTO ═══════════ -->
     <section id="features" class="section-padding">
         <div class="section-header reveal">
             <div class="badge-wrap"><div class="badge"><span data-i18n="features_badge">67 SKILLS IN ONE CHAT</span></div></div>
@@ -152,6 +152,7 @@
         </div>
 
         <div class="bento-grid">
+            <!-- 1: Receipt OCR — large -->
             <div class="bento-card card-large reveal">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-receipt"></i></div>
@@ -159,27 +160,30 @@
                     <p data-i18n="f1_desc">Send a photo of any receipt. AI instantly reads the merchant, items, taxes, and sorts everything into the right category.</p>
                     <div class="mini-chat">
                         <div class="mini-msg mini-user" data-i18n="f1_chat_user">&#128247; [Photo of receipt]</div>
-                        <div class="mini-msg mini-bot" data-i18n="f1_chat_bot">&#10003; Shell Gas \u2014 $150.00<br>Category: Transport / Fuel</div>
+                        <div class="mini-msg mini-bot" data-i18n="f1_chat_bot">&#10003; Shell Gas — $150.00<br>Category: Transport / Fuel</div>
                     </div>
                 </div>
             </div>
 
+            <!-- 2: Email -->
             <div class="bento-card card-medium reveal stagger-1">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-envelope-open-text"></i></div>
                     <h3 data-i18n="f_email_title">Email Orchestrator</h3>
-                    <p data-i18n="f_email_desc">Read inbox, compose replies, send follow-ups. AI writes, reviews, and sends \u2014 all from your chat.</p>
+                    <p data-i18n="f_email_desc">Read inbox, compose replies, send follow-ups. AI writes, reviews, and sends — all from your chat.</p>
                 </div>
             </div>
 
+            <!-- 3: Calendar -->
             <div class="bento-card card-medium reveal stagger-2">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
                     <h3 data-i18n="f_cal_title">Calendar & Briefs</h3>
-                    <p data-i18n="f_cal_desc">Google Calendar sync. Get morning briefs, schedule meetings, find free slots \u2014 all through natural language.</p>
+                    <p data-i18n="f_cal_desc">Google Calendar sync. Get morning briefs, schedule meetings, find free slots — all through natural language.</p>
                 </div>
             </div>
 
+            <!-- 4: Analytics — wide -->
             <div class="bento-card card-wide reveal">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
@@ -196,14 +200,16 @@
                 </div>
             </div>
 
+            <!-- 5: Research — wide -->
             <div class="bento-card card-wide reveal">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     <h3 data-i18n="f_res_title">Research & Search</h3>
-                    <p data-i18n="f_res_desc">Real-time web search, maps, YouTube analysis, price comparison, and news monitoring \u2014 powered by Google Search.</p>
+                    <p data-i18n="f_res_desc">Real-time web search, maps, YouTube analysis, price comparison, and news monitoring — powered by Google Search.</p>
                 </div>
             </div>
 
+            <!-- 6: Voice -->
             <div class="bento-card card-medium reveal stagger-1">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-microphone-lines"></i></div>
@@ -212,6 +218,7 @@
                 </div>
             </div>
 
+            <!-- 7: Booking -->
             <div class="bento-card card-medium reveal stagger-2">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-address-book"></i></div>
@@ -220,6 +227,7 @@
                 </div>
             </div>
 
+            <!-- 8: Life Tracking -->
             <div class="bento-card card-medium reveal stagger-3">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
@@ -228,6 +236,7 @@
                 </div>
             </div>
 
+            <!-- 9: Writing -->
             <div class="bento-card card-medium reveal stagger-4">
                 <div class="bento-content">
                     <div class="icon-box"><i class="fa-solid fa-pen-nib"></i></div>
@@ -238,7 +247,7 @@
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- ═══════════ HOW IT WORKS ═══════════ -->
     <section id="how-it-works" class="section-padding section-alt">
         <div class="section-header reveal">
             <div class="badge-wrap"><div class="badge"><span data-i18n="how_badge">SIMPLE AS 1-2-3</span></div></div>
@@ -254,7 +263,7 @@
             <div class="step-card">
                 <div class="step-number">2</div>
                 <h3 data-i18n="how_step2_title">Tell the Bot</h3>
-                <p data-i18n="how_step2_desc">Type, speak, or send a photo. Use natural language \u2014 no commands to memorize.</p>
+                <p data-i18n="how_step2_desc">Type, speak, or send a photo. Use natural language — no commands to memorize.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">3</div>
@@ -264,7 +273,7 @@
         </div>
     </section>
 
-    <!-- Agents -->
+    <!-- ═══════════ AGENTS ═══════════ -->
     <section id="agents" class="section-padding">
         <div class="section-header reveal">
             <div class="badge-wrap"><div class="badge"><span data-i18n="agents_badge">ECOSYSTEM</span></div></div>
@@ -330,12 +339,12 @@
         </div>
     </section>
 
-    <!-- Use Cases -->
+    <!-- ═══════════ USE CASES ═══════════ -->
     <section id="use-cases" class="section-padding section-alt">
         <div class="section-header reveal">
             <div class="badge-wrap"><div class="badge"><span data-i18n="uc_badge">USE CASES</span></div></div>
             <h2 data-i18n="uc_title">Built for <span class="gradient-text">your</span> life</h2>
-            <p class="section-subtitle" data-i18n="uc_subtitle">Whether you run a business or manage a household \u2014 we've got you covered.</p>
+            <p class="section-subtitle" data-i18n="uc_subtitle">Whether you run a business or manage a household — we've got you covered.</p>
         </div>
         <div class="uc-grid reveal">
             <div class="uc-card">
@@ -379,7 +388,7 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- ═══════════ TESTIMONIALS ═══════════ -->
     <section class="section-padding">
         <div class="section-header reveal">
             <div class="badge-wrap"><div class="badge"><span data-i18n="test_badge">REVIEWS</span></div></div>
@@ -422,7 +431,7 @@
         </div>
     </section>
 
-    <!-- Pricing -->
+    <!-- ═══════════ PRICING ═══════════ -->
     <section id="pricing" class="section-padding section-alt">
         <div class="section-header reveal">
             <h2 data-i18n="pricing_title">Ready to delegate chaos to <span class="gradient-text">AI</span>?</h2>
@@ -456,7 +465,7 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- ═══════════ FAQ ═══════════ -->
     <section id="faq" class="section-padding">
         <div class="section-header reveal">
             <div class="badge-wrap"><div class="badge"><span data-i18n="faq_badge">FAQ</span></div></div>
@@ -498,7 +507,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══════════ FOOTER ═══════════ -->
     <footer>
         <div class="footer-content">
             <div class="footer-col brand">
