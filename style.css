@@ -135,8 +135,8 @@ h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
 /* ─── NAVBAR ─── */
 .navbar {
     position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
-    max-width: 1240px; width: calc(100% - 40px);
-    padding: 14px 36px;
+    width: calc(100% - 40px); max-width: 1340px;
+    padding: 14px 32px;
     background: rgba(255,255,255,0.75);
     backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
@@ -149,16 +149,17 @@ h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
     background: rgba(255,255,255,0.95);
     box-shadow: var(--shadow-md);
 }
-.logo { font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 10px; color: var(--text-primary); white-space: nowrap; }
-.logo svg { color: var(--accent); width: 28px; height: 28px; }
-.nav-links { display: flex; gap: 32px; }
-.nav-links a { font-weight: 500; color: var(--text-secondary); font-size: 15px; transition: color 0.2s; }
+.logo { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 10px; color: var(--text-primary); white-space: nowrap; flex-shrink: 0; }
+.logo svg { color: var(--accent); width: 26px; height: 26px; }
+.nav-links { display: flex; gap: clamp(16px, 2vw, 32px); flex-shrink: 1; }
+.nav-links a { font-weight: 500; color: var(--text-secondary); font-size: 15px; transition: color 0.2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--accent); }
-.nav-actions { display: flex; gap: 12px; align-items: center; }
+.nav-actions { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+.nav-actions .btn { padding: 10px 22px; font-size: 14px; }
 .lang-selector select {
     background: var(--bg-section); border: 1px solid var(--border);
-    border-radius: var(--radius-sm); padding: 8px 14px;
-    font-size: 14px; color: var(--text-secondary); cursor: pointer;
+    border-radius: var(--radius-sm); padding: 7px 12px;
+    font-size: 13px; color: var(--text-secondary); cursor: pointer;
     font-family: inherit;
 }
 .hamburger {
@@ -181,13 +182,15 @@ h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { font-size: 16px; font-weight: 500; color: var(--text-primary); padding: 8px 0; }
 
-/* Tablet — shrink navbar a bit */
-@media (max-width: 1100px) {
+/* Small laptops (1024–1279px) — compact navbar */
+@media (max-width: 1279px) {
     .navbar { padding: 12px 24px; }
-    .nav-links { gap: 20px; }
-    .nav-links a { font-size: 14px; }
-    .logo { font-size: 1.05rem; }
-    .logo svg { width: 24px; height: 24px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 13px; }
+    .nav-actions .btn { padding: 9px 18px; font-size: 13px; }
+    .logo { font-size: 1rem; }
+    .logo svg { width: 22px; height: 22px; }
+    .lang-selector select { padding: 6px 10px; font-size: 12px; }
 }
 
 /* Mobile — hamburger menu */
@@ -584,14 +587,15 @@ footer { border-top: 1px solid var(--border); padding: 60px 5% 40px; background:
 /* ─── LARGE DESKTOP (1440px+) ─── */
 @media (min-width: 1440px) {
     body { font-size: 17px; }
-    .navbar { max-width: 1360px; padding: 16px 40px; }
-    .logo { font-size: 1.3rem; gap: 12px; }
-    .logo svg { width: 32px; height: 32px; }
-    .nav-links { gap: 36px; }
+    .navbar { max-width: 1400px; padding: 16px 40px; }
+    .logo { font-size: 1.25rem; gap: 12px; }
+    .logo svg { width: 30px; height: 30px; }
+    .nav-links { gap: 32px; }
     .nav-links a { font-size: 16px; }
+    .nav-actions .btn { padding: 12px 28px; font-size: 15px; }
     .btn { padding: 14px 32px; font-size: 16px; }
     .btn-lg { padding: 18px 40px; font-size: 18px; }
-    .lang-selector select { padding: 10px 16px; font-size: 15px; }
+    .lang-selector select { padding: 9px 14px; font-size: 14px; }
     .section-padding { max-width: 1320px; }
     .hero { max-width: 1440px; gap: 80px; }
     h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); }
