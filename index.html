@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Bot | ИИ-ассистент для жизни и бизнеса</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Radial Glow Backgrounds -->
+    <div class="glow-bg glow-top"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar reveal">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Finance AI</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features" data-i18n="nav_features">Возможности</a>
+            <a href="#agents" data-i18n="nav_agents">Агенты</a>
+            <a href="#pricing" data-i18n="nav_pricing">Тарифы</a>
+            <a href="#" data-i18n="nav_docs">Документация</a>
+            <a href="#" data-i18n="nav_blog">Блог</a>
+        </div>
+        <div class="nav-actions">
+            <div class="lang-selector">
+                <select id="language-select" class="btn-outline">
+                    <option value="ru">🇷🇺 RU</option>
+                    <option value="en" selected>🇺🇸 EN</option>
+                    <option value="es">🇪🇸 ES</option>
+                </select>
+            </div>
+            <a href="https://t.me/financeaibot" class="btn btn-outline nav-btn" data-i18n="nav_login">Войти</a>
+            <a href="https://t.me/financeaibot" class="btn btn-primary nav-btn"><span data-i18n="nav_start">Начать
+                    бесплатно</span> <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content reveal">
+            <div class="badge-wrap">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text" data-i18n="hero_badge">Powered by Claude & ChatGPT & Gemini</span>
+                </div>
+            </div>
+
+            <h1 class="hero-title" data-i18n="hero_title">Ваш персональный <br><span
+                    class="gradient-text type-effect">AI-ассистент</span></h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Управляйте деньгами, задачами, расписанием и клиентами
+                прямо в
+                Telegram, WhatsApp, Slack или по SMS.</p>
+            <div class="hero-cta">
+                <a href="https://t.me/financeaibot" class="btn btn-primary btn-large"><span
+                        data-i18n="hero_btn_start">Начать использовать</span> <i
+                        class="fa-solid fa-arrow-right"></i></a>
+                <a href="#features" class="btn btn-outline btn-large code-btn"><i class="fa-solid fa-terminal"></i>
+                    <span data-i18n="hero_btn_docs">Читать документацию</span></a>
+            </div>
+        </div>
+
+        <!-- Terminal Demo -->
+        <div class="hero-visual reveal delay-1">
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="window-controls">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="terminal-title">finance-ai — bash — 80x24</div>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <div class="cmd-line"><span class="prompt">~ %</span> <span class="cmd-input">finance record
+                            expense</span></div>
+                    <div class="cmd-response hidden" id="cmd-resp-1">
+                        <span class="clr-blue">?</span> Enter amount Details: <span class="clr-green"
+                            id="term_input">"Заправил трак на 150 баксов"</span><br>
+                        <span class="clr-dim" id="term_processing">Processing with Finance AI...</span>
+                    </div>
+                    <div class="cmd-response hidden" id="cmd-resp-2">
+                        <br>
+                        <span class="clr-green">✔</span> <strong>Success!</strong> Recorded to your Tracker.<br>
+                        <span class="clr-purple">Category:</span> <span id="term_cat">Транспорт / Топливо</span><br>
+                        <span class="clr-purple">Amount:</span> $150.00<br>
+                        <span class="clr-dim" id="term_note">Note: Записано в расходы. Это 15% от бюджета на
+                            месяц.</span><br>
+                        <br>
+                        <span class="prompt">~ %</span> <span class="cursor-blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section section-padding reveal">
+        <div class="stats-grid">
+            <div class="stat-card hover-glow" data-glow-color="rgba(147, 51, 234, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="stat-value"><span class="counter" data-target="11">0</span></div>
+                <div class="stat-label" data-i18n="stat_agents">AI Агентов</div>
+            </div>
+            <div class="stat-card hover-glow" data-glow-color="rgba(37, 99, 235, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="stat-value"><span class="counter" data-target="66">0</span></div>
+                <div class="stat-label" data-i18n="stat_skills">Навыков</div>
+            </div>
+            <div class="stat-card hover-glow" data-glow-color="rgba(22, 163, 74, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="stat-value"><span class="counter" data-target="4">0</span></div>
+                <div class="stat-label" data-i18n="stat_channels">Канала связи</div>
+            </div>
+            <div class="stat-card hover-glow" data-glow-color="rgba(219, 39, 119, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="stat-value">$<span class="counter" data-target="49">0</span></div>
+                <div class="stat-label" data-i18n="stat_price">в месяц</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Logos -->
+    <section class="integrations reveal">
+        <p class="section-label text-center" data-i18n="integrations_label">ИНТЕГРИРУЕТСЯ С ВАШИМИ ЛЮБИМЫМИ
+            ИНСТРУМЕНТАМИ</p>
+        <div class="marquee-wrapper">
+            <div class="marquee-content" style="display: flex;">
+                <div class="integration-logo"><i class="fab fa-telegram"></i> Telegram</div>
+                <div class="integration-logo"><i class="fab fa-whatsapp"></i> WhatsApp</div>
+                <div class="integration-logo"><i class="fab fa-slack"></i> Slack</div>
+                <div class="integration-logo"><i class="fas fa-comment-sms"></i> SMS</div>
+                <div class="integration-logo"><i class="fab fa-google"></i> Google Calendar</div>
+                <div class="integration-logo"><i class="fa-solid fa-envelope"></i> Gmail</div>
+                <div class="integration-logo"><i class="fab fa-stripe"></i> Stripe</div>
+                <div class="integration-logo"><i class="fab fa-cc-visa"></i> Visa</div>
+                <div class="integration-logo"><i class="fa-solid fa-file-invoice"></i> PDF Invoices</div>
+                <div class="integration-logo"><i class="fa-solid fa-microphone"></i> Voice Notes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Box Features -->
+    <section id="features" class="features section-padding">
+        <div class="section-header reveal">
+            <div class="badge-wrap">
+                <div class="badge">
+                    <span class="badge-text" data-i18n="features_badge">66 НАВЫКОВ В ОДНОМ ЧАТЕ</span>
+                </div>
+            </div>
+            <h2 class="section-title" data-i18n="features_title">Всё, что вам нужно. <br>В <span
+                    class="gradient-text">одном</span> месте.</h2>
+            <p class="section-subtitle" data-i18n="features_subtitle">Мощная LangGraph-архитектура сама распределяет
+                задачи между агентами. Забудьте о десятках приложений.</p>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Feature 1: OCR -->
+            <div class="bento-card card-large reveal hover-glow" data-glow-color="rgba(34, 197, 94, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="bento-content">
+                    <div class="icon-box"><i class="fa-solid fa-receipt"></i></div>
+                    <h3 data-i18n="f1_title">Smart OCR чеков</h3>
+                    <p class="clr-dim" data-i18n="f1_desc">Отправьте фото скомканного чека. AI мгновенно распознает
+                        мерчанта, товары, налоги и раскидает по категориям через Gemini 3 Flash.</p>
+
+                    <div class="code-preview mt-4">
+                        <div class="code-header">receipt_parser.py</div>
+                        <pre><code><span class="clr-pink">import</span> finance_ai
+
+receipt = finance_ai.scan(<span class="clr-green">"photo.jpg"</span>)
+<span class="clr-blue">print</span>(receipt.merchant) <span class="clr-dim"># -> "Shell"</span>
+<span class="clr-blue">print</span>(receipt.total)    <span class="clr-dim"># -> 150.00</span></code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Email -->
+            <div class="bento-card card-medium reveal delay-1 hover-glow" data-glow-color="rgba(147, 51, 234, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="bento-content">
+                    <div class="icon-box"><i class="fa-solid fa-envelope-open-text"></i></div>
+                    <h3 data-i18n="f_email_title">Email Оркестратор</h3>
+                    <p class="clr-dim" data-i18n="f_email_desc">Авто-чтение входящих писем, составление драфтов ответов
+                        и фоллоу-апов силами Claude Sonnet.</p>
+                </div>
+            </div>
+
+            <!-- Feature 3: Calendar -->
+            <div class="bento-card card-medium reveal delay-2 hover-glow" data-glow-color="rgba(245, 158, 11, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="bento-content">
+                    <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3 data-i18n="f_cal_title">Calendar & Утро</h3>
+                    <p class="clr-dim" data-i18n="f_cal_desc">Синхронизация с Google Calendar. Получайте проактивные
+                        утренние сводки и планируйте день прямо в чате.</p>
+                </div>
+            </div>
+
+            <!-- Feature 4: Analytics -->
+            <div class="bento-card card-wide reveal hover-glow" data-glow-color="rgba(236, 72, 153, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="bento-content">
+                    <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3 data-i18n="f4_title">Мульти-агентная аналитика</h3>
+                    <p class="clr-dim" data-i18n="f4_desc">Запрашивайте сложные отчеты: "Покажи мои траты на авто за
+                        полгода по месяцам". Генерация точных графиков прямо в чат.</p>
+                </div>
+                <div class="bento-visual">
+                    <div class="chart-demo-code">
+                        <pre><code><span class="clr-pink">{</span>
+  <span class="clr-green">"query"</span>: <span class="clr-blue" id="code_query">"Авто за полгода"</span>,
+  <span class="clr-green">"result"</span>: <span class="clr-pink">{</span>
+    <span class="clr-green">"Jul"</span>: 120, <span class="clr-green">"Aug"</span>: 150, <span class="clr-green">"Sep"</span>: 300,
+    <span class="clr-green">"Oct"</span>: 110, <span class="clr-green">"Nov"</span>: 180, <span class="clr-green">"Dec"</span>: 90
+  <span class="clr-pink">}</span>
+<span class="clr-pink">}</span></code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 5: Research -->
+            <div class="bento-card card-wide reveal hover-glow" data-glow-color="rgba(37, 99, 235, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="bento-content">
+                    <div class="icon-box"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3 data-i18n="f_res_title">Research & Поиск</h3>
+                    <p class="clr-dim" data-i18n="f_res_desc">Глубокий анализ информации через Google Search Grounding.
+                        Поиск по картам, парсинг ссылок, сводки видео с YouTube (Youtube Data API) и мониторинг
+                        новостей.</p>
+                </div>
+            </div>
+
+            <!-- Feature 6: Voice -->
+            <div class="bento-card card-medium reveal delay-1 hover-glow" data-glow-color="rgba(168, 85, 247, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="bento-content">
+                    <div class="icon-box"><i class="fa-solid fa-microphone-lines"></i></div>
+                    <h3 data-i18n="f2_title">Голосовой ввод</h3>
+                    <p class="clr-dim" data-i18n="f2_desc">Идеально распознает и структурирует любой язык в реальном
+                        времени. Просто надиктуйте ваши доходы и расходы.</p>
+                </div>
+            </div>
+
+            <!-- Feature 7: Booking -->
+            <div class="bento-card card-medium reveal delay-2 hover-glow" data-glow-color="rgba(16, 185, 129, 0.15)">
+                <div class="glow-mouse"></div>
+                <div class="bento-content">
+                    <div class="icon-box"><i class="fa-solid fa-address-book"></i></div>
+                    <h3 data-i18n="f_book_title">Booking & CRM</h3>
+                    <p class="clr-dim" data-i18n="f_book_desc">Встроенная CRM для бизнеса: запись клиентов, отмены,
+                        автоматические напоминания и отправка уведомлений.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Grid -->
+    <section id="agents" class="agents section-padding">
+        <div class="section-header reveal">
+            <div class="badge-wrap">
+                <div class="badge">
+                    <span class="badge-text" data-i18n="agents_badge">ЭКОСИСТЕМА</span>
+                </div>
+            </div>
+            <h2 class="section-title" data-i18n="agents_title">Ваша команда из <span class="gradient-text">11
+                    ИИ-агентов</span></h2>
+            <p class="section-subtitle" data-i18n="agents_subtitle">Каждый агент специализируется на своей задаче и
+                работает в единой многоуровневой памяти.</p>
+        </div>
+
+        <div class="agents-grid reveal">
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                <div class="agent-name">Finance</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="agent-name">Analytics</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div class="agent-name">Life Tracker</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-regular fa-calendar-days"></i></div>
+                <div class="agent-name">Calendar</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-list-check"></i></div>
+                <div class="agent-name">Tasks</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-flask"></i></div>
+                <div class="agent-name">Research</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                <div class="agent-name">Writing</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <div class="agent-name">Email</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-calendar-plus"></i></div>
+                <div class="agent-name">Booking</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                <div class="agent-name">Voice</div>
+            </div>
+            <div class="agent-card hover-glow">
+                <div class="glow-mouse"></div>
+                <div class="agent-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                <div class="agent-name">Onboarding</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Bottom CTA -->
+    <section id="pricing" class="cta-section section-padding reveal">
+        <div class="glow-bg glow-bottom"></div>
+        <div class="cta-box">
+            <h2 class="section-title" data-i18n="pricing_title">Готовы делегировать хаос <span
+                    class="gradient-text">ИИ</span>?</h2>
+            <p class="clr-dim" data-i18n="pricing_subtitle">Стройте свои финансы и дела как код. Без скачивания лишних
+                приложений.</p>
+
+            <div class="pricing-card">
+                <div class="price">
+                    <span class="currency">$</span>
+                    <span class="amount">49</span>
+                    <span class="period" data-i18n="pricing_period">/месяц</span>
+                </div>
+                <p class="pricing-sub" data-i18n="pricing_desc">Полный доступ ко всем модулям AI, 11 агентам,
+                    распознаванию чеков,
+                    интеграции с календарем и почтой. Поддержка мультиарендности для бизнеса и семьи.</p>
+                <a href="https://t.me/financeaibot" class="btn btn-primary btn-large w-full"><span
+                        data-i18n="pricing_btn">Перейти в Telegram</span> <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col brand">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <span>Finance AI</span>
+                </div>
+                <p class="clr-dim mt-2" data-i18n="footer_copy">© 2026 Finance Bot. Все права защищены.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4 data-i18n="footer_prod">Продукт</h4>
+                    <a href="#features" data-i18n="nav_features">Возможности</a>
+                    <a href="#agents" data-i18n="nav_agents">Агенты</a>
+                    <a href="#pricing" data-i18n="nav_pricing">Тарифы</a>
+                    <a href="#">Changelog</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer_res">Ресурсы</h4>
+                    <a href="#" data-i18n="nav_docs">Документация</a>
+                    <a href="#" data-i18n="nav_blog">Блог</a>
+                    <a href="#" data-i18n="footer_sup">Поддержка</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer_comp">Компания</h4>
+                    <a href="#" data-i18n="footer_about">О нас</a>
+                    <a href="#" data-i18n="footer_priv">Политика конфиденциальности</a>
+                    <a href="#" data-i18n="footer_terms">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
